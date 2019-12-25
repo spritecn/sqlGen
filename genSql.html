@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sql Generater</title>
+    <!-- zui css -->
+    <link rel="stylesheet" href="src/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zui@1.8.1/dist/css/zui.lite.min.css">
+    <script src="https://cdn.jsdelivr.net/combine/npm/sightglass@0.2.6/index.min.js,npm/rivets@0.9.6/dist/rivets.min.js,npm/jquery@2.2.4/dist/jquery.min.js,npm/cos-js-sdk-v4@1.1.11/dist/cos-js-sdk-v4.min.js,npm/zui@1.8.1/dist/js/zui.lite.min.js"></script> 
+</head>
+<body class="sidebar-collapse" style="height: auto; min-height: 100%;">
+    <div class="wrapper">
+        <header class="main-header">
+            <nav class="navbar navbar-fixed-top bg-primary">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <span class="logo-mini">sqlGenerater</span> 
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="javascript:;">
+                                    <span>
+                                        <i class="icon icon-envelope-alt"></i>
+                                        <span class="label label-success label-pill up">2</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:;" data-toggle="dropdown"><i class="icon icon-user"></i> 管理员 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">资料设置</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">注销</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <div class="content-wrapper">
+            <div class="content-header">
+                <ul class="breadcrumb">
+                </ul>
+            </div>
+            <div class="content-body">
+                <div class="container-fluid">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="panel-title">sql 代码生成</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-tools" style="margin-bottom: 15px;">
+                                <div class="pull-right" style="width: 185px;">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button id="gen" class="btn btn-block" type="button">生成</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="tools-group">
+                                    <p class="lead">主要用于生成insert\update代码,模板中参数用#,目前只支持一个参数</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <textarea id="template" class="form-control" rows="3" placeholder="模板,参数以#号代替,"></textarea>
+                                    <textarea id="result"  class="form-control" rows="20" placeholder="生成结果"></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <textarea id="param" class="form-control" rows="24" placeholder="参数,每行写一个"></textarea>
+                                </div >
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <p>TODO:</p>
+                            <ol>
+                                <li>select in</li>
+                                <li>insert/update in</li>
+                                <li>支持给字符串加引号</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</body>
+<script src="./src/app.js"></script> 
+<script>
+
+$(function(){
+   $('#gen').click(genSql)
+})
+
+</script>
+</html>
