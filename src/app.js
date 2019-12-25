@@ -1,16 +1,18 @@
-function genSql() {
+function genSql(){
     let template = $("#template").val()
     let param = $("#param").val()
-    if (template.length == 0 && param.length == 0) return
-    let arr = param.split("\n")
-    console.log(arr)
-    if(arr.length == 0) return
-    let result = []
-    arr.forEach(element => {
-        if(element.length == 0) return
+    let paramLine = param.split("\n")
+    let resultArr = []
+    paramLine.forEach(element => {
         console.log(template,element)
-        result.push(template.replace("#",element))
+        if(element.length == 0) return
+        if(",".indexOf(element)){
+            let tmpArr = element.split(",")
+            resultArr.push(template.format(...tmpArr))
+        }else{
+            resultArr.push(template.format(element))
+        }
     })
-    let resultStr = result.join(";\n") + ";"
+    let resultStr = resultArr.join("\n")
     $("#result").val(resultStr)
-  }
+}

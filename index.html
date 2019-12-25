@@ -65,7 +65,8 @@
                                     </div>
                                 </div>
                                 <div class="tools-group">
-                                    <p class="lead">主要用于生成insert\update代码,模板中参数用#,目前只支持一个参数</p>
+                                    <p>主要用于生成insert\update代码,模板中参数用{0},{1},如果参数只有一个写{0}即可,右边参数用逗号分割,每行一组
+                                    </p>
                                 </div>
                             </div>
                             <hr>
@@ -80,11 +81,11 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <p>TODO:</p>
+                            <span>TODO:</span>
                             <ol>
-                                <li>select in</li>
-                                <li>insert/update in</li>
-                                <li>支持给字符串加引号</li>
+                                <li><s>支持多参数</s></li>
+                                <li>select in()生成括号内内容 </li>
+                                <li>支持可配置给字符串加引号</li>
                             </ol>
                         </div>
                     </div>
@@ -93,11 +94,14 @@
         </div> 
     </div>
 </body>
+<script src="./src/stringformat.js"></script> 
 <script src="./src/app.js"></script> 
 <script>
 
 $(function(){
-   $('#gen').click(genSql)
+    $("#template").val("update usre set a = {0},b={1} where id = {0};")
+    $("#param").val("1,2\n3,4")
+    $('#gen').click(genSql)
 })
 
 </script>
