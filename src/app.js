@@ -25,6 +25,8 @@ function genSql(){
         }
         if(element.indexOf(",") != -1){
             let tmpArr = element.split(",")
+            //处理转义符
+            tmpArr = parseParamEscape(tmpArr)
             resultArr.push(template.format(...tmpArr))
         }else{
             resultArr.push(template.format(element))
@@ -33,6 +35,7 @@ function genSql(){
     let resultStr = resultArr.join("\n")
     $("#result").val(resultStr)
 }
+
 
 function genParamForDash(param){
     //如果参数里有 - ,如 101-110，将参数转换成 101，102...110多行参数数组
@@ -77,6 +80,23 @@ function genParamForDash(param){
         resultArr.push(lineSplitArr.join(','))
     }) 
     return resultArr
+}
+
+var parseParamEscape = (paramArr) =>{
+    //'\'为转义字符,只转义,不做分隔符用
+    console.log("paramArr",paramArr)
+    let result = []
+    let tmpParam = ''
+    for (let i of paramArr){
+        if (i.substr(i.length-1,1) === '\\'){
+            tmpParam = tmpParam + i.substr(0,i.length -1) + ','
+        }else{
+            result.push(tmpParam + i)
+            tmpParam = ''
+        }
+    }
+    console.log('Escap:',result)
+    return result
 }
 
 function genSqlIn(){
