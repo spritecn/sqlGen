@@ -1,0 +1,59 @@
+<html>
+<head>
+  <meta charset="utf8" />
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="app.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-card color="basil">
+          <v-card-title class="text-center justify-center py-6">
+            <h3 class="font-weight-bold display-1">
+              template-code-generator
+            </h3>
+          </v-card-title>
+        </v-card>
+
+          <v-tabs background-color="transparent" grow  v-model="tab">
+            <v-tab>
+              模板代码生成
+            </v-tab>
+            <v-tab>
+              对象生成
+            </v-tab>
+            <v-tab>
+              "待定"
+            </v-tab>
+          </v-tabs>
+          <v-tabs-items  v-model="tab">
+            <v-tab-item>
+              <template-code-gen></template-code-gen>
+            </v-tab-item>
+            <v-tab-item >
+            <v-card flat>
+              <v-card-text>222</v-card-text>
+            </v-card>
+            </v-tab-item>
+            <v-tab-item>
+            <v-card flat>
+              <v-card-text>333</v-card-text>
+            </v-card>
+            </v-tab-item>
+        </v-tabs-items>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="lib/stringformat.js"></script>
+  <script src="lib/template_code_gen_lib.js"></script>
+
+  <script src="template-code.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
