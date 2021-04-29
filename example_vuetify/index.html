@@ -1,17 +1,20 @@
 <html>
 <head>
   <meta charset="utf8" />
-  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-  <link href="app.css" rel="stylesheet">
+  <link href="./lib/vuetify.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
+<style>
+  .basil {
+    background-color: #3280fc !important;
+  }
+</style>
 <body>
   <div id="app">
     <v-app>
       <v-main>
         <v-card color="basil">
-          <v-card-title class="text-center justify-center py-6">
+          <v-card-title class="text-center justify-center py-4">
             <h3 class="font-weight-bold display-1">
               template-code-generator
             </h3>
@@ -34,9 +37,7 @@
               <template-code-gen></template-code-gen>
             </v-tab-item>
             <v-tab-item >
-            <v-card flat>
-              <v-card-text>222</v-card-text>
-            </v-card>
+              <object-gen></object-gen>
             </v-tab-item>
             <v-tab-item>
             <v-card flat>
@@ -47,13 +48,14 @@
       </v-main>
     </v-app>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-  <script src="lib/stringformat.js"></script>
-  <script src="lib/template_code_gen_lib.js"></script>
-
-  <script src="template-code.js"></script>
-  <script src="app.js"></script>
+  <script src="lib/vue.js"></script>
+  <script src="lib/lodash.js"></script>
+  <script src="app/stringformat.js"></script>
+  <script src="app/templateCodeGen.js"></script>
+  <script src="app/objectGen.js"></script>
+  <script src="lib/vuetify.js"></script>
+  <script src="component/templateCodeComponent.js"></script>
+  <script src="component/objectGenComponent.js"></script>
+  <script src="app/app.js"></script>
 </body>
 </html>
